@@ -45,6 +45,12 @@ Host ec2-host
 ### 4. Create S3 buckets
 This project uses two S3 buckets. The `pet-adoption-mlops` is a general purpose S3 bucket for storing data artifacts and monitoring metrics. The second S3 bucket `mlflow-artifacts-pet-adoption` is the artifact folder of the MLflow tracking server.
 
+```bash
+aws s3api create-bucket --bucket pet-adoption-mlops --region us-east-1 
+
+aws s3api create-bucket --bucket mlflow-artifacts-pet-adoption --region us-east-1
+```
+
 In the AWS console, navigate to the `S3` service and create the following S3 buckets:
 - pet-adoption-mlops
 - mlflow-artifacts-pet-adoption
