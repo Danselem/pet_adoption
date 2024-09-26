@@ -28,14 +28,14 @@ mlflow:
 
 start_services:
 	poetry run dotenv
-	sudo docker-compose up --build -d
+	sudo docker compose up --build -d
 	poetry run prefect server start &
 	poetry run prefect config set PREFECT_API_URL=http://127.0.0.1:4200/api
 
 build: start_services mlflow
 
 kill_services:
-	sudo docker-compose down --remove-orphans --volumes
+	sudo docker compose down --remove-orphans --volumes
 	sudo docker system prune
 
 # Workflows orchestration

@@ -2,7 +2,7 @@
 name = "pet_adoption"
 version = "0.1.0"
 description = "ML system to predict the likelihood of a pet being adopted."
-authors = ["Yorgos Papageorgiou"]
+authors = ["Daniel Egbo"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

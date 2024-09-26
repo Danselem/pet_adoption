@@ -36,8 +36,8 @@ echo "Docker version $(docker --version) installed successfully."
 
 # Install Docker Compose
 echo "Installing Docker Compose..."
-sudo apt install docker-compose
-echo "Docker Compose version $(docker-compose --version) installed successfully."
+sudo apt install -y docker-compose-v2
+echo "Docker Compose version $(docker compose --version) installed successfully."
 
 # Install Pyenv
 echo "Installing Pyenv..."
@@ -55,7 +55,7 @@ line_to_add='export PATH="/home/ubuntu/.local/bin:$PATH"'
 # Backup the original .bashrc file
 cp ~/.bashrc ~/.bashrc.backup
 # Insert the new line at the top of the .bashrc file
-sed -i '1i  export PATH="\/home\/ubuntu\/.local\/bin:\$PATH"' .bashrc
+sed -i '1i  export PATH="/home/ubuntu/.local/bin:$PATH"' ~/.bashrc
 echo "Poetry installed successfully."
 
 source ~/.bashrc

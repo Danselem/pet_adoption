@@ -46,9 +46,9 @@ Host ec2-host
 This project uses two S3 buckets. The `pet-adoption-mlops` is a general purpose S3 bucket for storing data artifacts and monitoring metrics. The second S3 bucket `mlflow-artifacts-pet-adoption` is the artifact folder of the MLflow tracking server.
 
 ```bash
-aws s3api create-bucket --bucket pet-adoption-mlops --region us-east-1 
+aws s3api create-bucket --bucket pet-adoption-egbo --region us-east-1
 
-aws s3api create-bucket --bucket mlflow-artifacts-pet-adoption --region us-east-1
+aws s3api create-bucket --bucket mlflow-artifacts-pet-adoption-egbo --region us-east-1
 ```
 
 In the AWS console, navigate to the `S3` service and create the following S3 buckets:
@@ -94,6 +94,12 @@ This make command executes the [set_up.sh](pet_adoption/scripts/set_up.sh) scrip
 
 > [!NOTE]
 > During the execution of the set_up.sh script, you might be prompted to restart some services. Press Enter and the script will continue.
+You might encounter an error:
+`make: *** [Makefile:15: poetry] Error 127`
+Handle it this way:
+```bash
+export PATH="/home/ubuntu/.local/bin:$PATH"
+pip install poetry
 
 ### 8. Install Python dependencies
 <ins>Open a new terminal and execute the following command</ins>:
@@ -112,7 +118,7 @@ Copy-paste the secret access key and the access key id to the terminal. Also, ad
 ```
 AWS Access Key ID: XXXXXXXXX
 AWS Secret Access Key: XXXXXXXXX
-Default region name: eu-west-1
+Default region name: us-east-1
 Default output format: json
 ```
 
